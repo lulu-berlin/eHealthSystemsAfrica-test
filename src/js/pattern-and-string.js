@@ -32,10 +32,11 @@ exports.checkStringForPattern = function(pattern, string) {
         } else {
             // If the pattern-key is new, but the substring was already assigned to another
             // pattern-key, it means that the pattern doesn't match the string.
-            if (Object.keys(dict).some(function(key) {
-                return dict[key] === curSubstring;
-            })) {
-                return false;
+            // This is equivalent to curSubstring appearing earlier in substrings[].
+            for (var i = 0; i < index; i++) {
+                if (substrings[i] === curSubstring) {
+                    return false;
+                }
             }
             // Add the pattern-key to the dictionary
             dict[key] = curSubstring;
