@@ -11,13 +11,19 @@ exports.isPerfectNumber = function(number) {
 
     var sqrtNumber = Math.floor(Math.sqrt(number));
     var sumDivisors = 1;
+
     for (var i = 2; i < sqrtNumber; i++) {
         if (number % i === 0) {
             sumDivisors += (i + number / i);
         }
     }
+
     if (number % sqrtNumber === 0) {
-        sumDivisors += sqrtNumber + (sqrtNumber * sqrtNumber === number ? 0 : number / sqrtNumber);
+        sumDivisors += sqrtNumber;
+        if (sqrtNumber * sqrtNumber !== number) {
+            sumDivisors += (number / sqrtNumber);
+        }
     }
+
     return number === sumDivisors;
 };

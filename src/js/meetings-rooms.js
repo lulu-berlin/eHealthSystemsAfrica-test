@@ -8,14 +8,14 @@ exports.scheduleMeetings = function(meetings) {
     var rooms = [];
 
     meetings.forEach(function(newMeeting) {
-        var availableRoom = rooms.findIndex(
-            function(room) {
-                return !room.some(
-                    function(scheduledMeeting) {
-                        return (newMeeting[0] >= scheduledMeeting[0] && newMeeting[0] <= scheduledMeeting[1]) ||
-                            (newMeeting[1] >= scheduledMeeting[0] && newMeeting[1] <= scheduledMeeting[1]);
-                    });
+        var availableRoom = rooms.findIndex(function(room) {
+            return !room.some(function(scheduledMeeting) {
+                return (
+                    (newMeeting[0] >= scheduledMeeting[0] && newMeeting[0] <  scheduledMeeting[1]) ||
+                    (newMeeting[1] >  scheduledMeeting[0] && newMeeting[1] <= scheduledMeeting[1])
+                );
             });
+        });
 
         if (availableRoom === -1) {
             // no available room found. create new one.
