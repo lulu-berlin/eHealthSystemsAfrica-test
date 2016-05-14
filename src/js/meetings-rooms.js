@@ -12,7 +12,8 @@ exports.scheduleMeetings = function(meetings) {
             return !room.some(function(scheduledMeeting) {
                 return (
                     (newMeeting[0] >= scheduledMeeting[0] && newMeeting[0] <  scheduledMeeting[1]) ||
-                    (newMeeting[1] >  scheduledMeeting[0] && newMeeting[1] <= scheduledMeeting[1])
+                    (newMeeting[1] >  scheduledMeeting[0] && newMeeting[1] <= scheduledMeeting[1]) ||
+                    (newMeeting[0] <= scheduledMeeting[0] && newMeeting[1] >= scheduledMeeting[1])
                 );
             });
         });
