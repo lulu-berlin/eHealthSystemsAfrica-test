@@ -6,9 +6,9 @@ The implementation code of the solutions to the test are in
 [src/js](src/js).
 
 Unit tests were written to test the solutions using the Jasmine testing
-framework and gulp.
+framework and gulp as a test-runner.
 
-To run the tests you would need npm and gulp:
+To run the tests you would need to have npm and gulp installed:
 
 ```sh
 npm install -g gulp 
@@ -34,10 +34,10 @@ I have assumed that the pattern is an array of distinct objects (whatever
 
 It first checks that the number of elements in the pattern array is
 identical to the number of space-separated substrings. Then, a dictionary
-is created mapping the pattern objects to the substrings. For each element
-in the pattern, it is checked if the corresponding substring already
-appeared in the dictionary. If it did, then the current substring must
-match the value it has in the dictionary. Otherwise (if the pattern
+is created, mapping the pattern objects to the substrings. For each
+element in the pattern, it is checked if the corresponding substring
+already appeared in the dictionary. If it did, then the current substring
+must match the value it has in the dictionary. Otherwise (if the pattern
 element is new), it should be made sure that the current substring wasn't
 mapped earlier to another pattern element. If all tests pass, the pattern
 matches the string.
