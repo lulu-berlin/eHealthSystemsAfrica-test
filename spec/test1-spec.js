@@ -18,7 +18,7 @@ describe('checkStringForPattern', function() {
         expect(result).toBe(true);
     });
 
-    it("should return false if the pattern matches the string", function() {
+    it("should return false if the pattern doesn't match the string", function() {
         var pattern = [1, 2, 2, 1];
         var string = "dog dog cat cat";
         var result = pattern_and_string.checkStringForPattern(pattern, string);

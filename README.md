@@ -64,17 +64,20 @@ All known perfect numbers are positive even integers. Odd perfect numbers
 were excluded because they are certainly not found within the range of
 positive integers representable by javascript.
 
-Divisors were checked only up to the square root of the number, including
-the complementary divisor (number divided by the found divisor). The
+Divisors are checked up to the square root of the number, including the
+complementary divisor (number divided by the found divisor). The
 complementary of the square root is only added if it is not identical to
 the number that is being checked.
+
+Note: a number cannot be composed of two divisors that are *both* greater
+than the number's square root.
 
 The memory complexity of this implementation is O(1) including only
 a variable for the sum of divisors and one to store the square root of the
 number.
 
-The time complexity is O(sqrt_N) at the worst case (if the number is
-indeed a positive even integer).
+The time complexity is ![O(sqrt_N)](src/img/OSqrtN.gif) at the worst case
+(if the number is indeed a positive even integer).
 
 # 3. Scheduling Meetings
 
@@ -95,4 +98,5 @@ The implementation can be found in
 The function ``scheduleMeetings(meetings)`` accepts an array of timestamps
 (each one is an array of two elements: beginning time and end time of
 a meeting). It returns an array of rooms; each room is an array of meeting
-in that room; each meetin is an array of a beginning time and an end time.
+in that room; each meeting is an array of a beginning time and an end
+time.
